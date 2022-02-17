@@ -3,6 +3,7 @@ from multiprocessing import context
 import re
 from django.shortcuts import render, redirect
 from django.urls import is_valid_path
+from django.contrib.auth.decoratord import login_required
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -13,6 +14,7 @@ def index(request):
     """The Home page for learning_logs."""
     return render(request, 'learning_logs/index.html')
 
+@login_required
 def topics(request):
     """Show all topics."""
     topics  = Topic.objects.order_by('date_added')
