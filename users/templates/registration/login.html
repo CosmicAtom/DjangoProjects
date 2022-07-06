@@ -10,7 +10,7 @@
     {% csrf_token %}
     {{form.as_p}}
 
-    <button type="button" name="button">Login in</button>
+    <button type="button" name="button">Log In</button>
     <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" >
   </form>
 {% endblock content %}
