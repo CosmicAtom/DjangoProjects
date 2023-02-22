@@ -1,13 +1,14 @@
 {% extends "learning_logs/base.html" %}
+{% load bootstrap5 %}
 
 {% block content %}
-
-  <form  action="{% url 'users:login' %}" method="post">
+  <form  action="{% url 'users:login' %}" method="post" class="form">
     {% csrf_token %}
-    {{form.as_p}}
-
-    <button type="button" name="button">Log In</button>
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="button" class="btn tbn-primary" name="submit">Log In</button>
     <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" >
-  </form>
+    {% endbuttons %}
 
+  </form>
 {% endblock content %}
